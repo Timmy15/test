@@ -167,7 +167,7 @@ void DoSingleThreaded(vector<string> _fileList, ESortType _sortType, string _out
 
 		// Here, we use the CreateComparer function to get the right comparator based on _sortType.
 		IStringComparer* comparer = CreateComparer(_sortType);
-		masterStringList = BubbleSort(masterStringList, comparer);
+		masterStringList = BubbleSort(masterStringList, _comparer);
 		delete comparer; // Ensure to delete the comparer after using it to avoid memory leak.
 
 		_fileList.erase(_fileList.begin() + i);
@@ -191,7 +191,7 @@ void DoMultiThreaded(vector<string> _fileList, ESortType _sortType, string _outp
 	}
 	// Here, we use the CreateComparer function to get the right comparator based on _sortType.
 	IStringComparer* comparer = CreateComparer(_sortType);
-	masterStringList = BubbleSort(masterStringList, comparer);
+	masterStringList = BubbleSort(masterStringList, _comparer);
 	delete comparer; // Ensure to delete the comparer after using it to avoid memory leak.
 
 	clock_t endTime = clock();
